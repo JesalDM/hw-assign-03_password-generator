@@ -22,10 +22,16 @@ function writePassword() {
 
 // Prompt the user for password criteria desired
       // Prompt to enter the desired password length
-
+      var lengthValue = prompt("Please enter the desired password length. It should be between 8-128 (both inclusive) characters.");
+      // Converting string to a number
+      var length = parseInt(lengthValue);
 
       // Validate if answer is a number and the number entered is between 8 and 128
-
+      // Used while loop to handle multiple instances of invalid number entered
+      while((isNaN(length)) || (length<8 || length>128)){
+        lengthValue = prompt("Please enter a valid number. It should be between 8-128 (both inclusive) characters.")
+        var length = parseInt(lengthValue);
+      }
 
       // Prompt/Confirm with the user which character types does he want to include in the password
       // Loop all the character type questions using an array. 
@@ -41,7 +47,7 @@ function writePassword() {
         
         
 
-        
+
 // Validate that at least one character type has been selected by the user
 
 
