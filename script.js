@@ -83,11 +83,29 @@ while(userChar.length===0){
 
 
 // Step 3 - Create a function for generate password
+function generatePassword(){
+  /* Create an empty array that will hold the randomly selected characters for the final password. 
+  The length of this array will equal the length of the password inputted by the user.*/
+  var randomPassChar = [];
+  // Step 3.1 - Ensure that at least 1 character from each character type that user desired, is included in the random password generated
+  for(var i=0; i<charTypeQuestions.length; i++){
+    if(charTypeQuestions[i].a===true){
+      // randomly generating a character from each character type group that user desired
+      var index = Math.floor(Math.random()*charTypeQuestions[i].corrArr.length);
+      //pushing the value at the corresponding index to the randomPassChar array
+      randomPassChar.push(charTypeQuestions[i].corrArr[index]);
+    }
+  }
+  // Step 3.2 - Randomly generating the remaining characters for the password from the userChar Array 
+  for(var i=randomPassChar.length; i<length; i++){
+    var index = Math.floor(Math.random()*userChar.length);
+    randomPassChar.push(userChar[index]);
+  }
+  //generate the final password after concatenating all the elements of the array and removing any spaces, commas or quotes
+  return (randomPassChar.join(''));
+}
 
-// Step 3.1 - Use Math.random() method to generate a password from the new Array of possible characters based on user password criteria
-
-// Step 3.2 - Ensure that from all character types that user wanted in his password, at least 1 character from each charcter type group is included in the random password generated
-
+generatePassword();
 
 
 //  Add event listener to generate button
