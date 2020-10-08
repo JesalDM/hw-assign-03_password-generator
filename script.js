@@ -75,7 +75,7 @@ buildUserCharArr();
 
 // Step 2.7 - Validate that at least one character type has been selected by the user
 // if userChar array is empty, indicating user hasn't selected any character type
-if(userChar.length===0){
+while(userChar.length===0){
   //alert the user to select at least 1 and loop through all the questions and the entire process of populating the userChar array again 
   alert("You need to choose at least 1 character type to generate the password.");
   buildUserCharArr();
